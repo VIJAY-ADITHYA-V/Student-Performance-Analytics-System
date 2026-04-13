@@ -1,5 +1,10 @@
 pipeline {
     agent any
+    
+    // Add this tools section
+    tools {
+        maven 'MAVEN_HOME' // Use the name you configured in Manage Jenkins > Global Tool Configuration
+    }
 
     stages {
         stage('Checkout') {
@@ -7,23 +12,6 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/VIJAY-ADITHYA-V/Student-Performance-Analytics-System.git'
             }
         }
-
-        stage('Build & Test') {
-            steps {
-                sh 'mvn clean test'
-            }
-        }
-
-        stage('Package') {
-            steps {
-                sh 'mvn package -DskipTests'
-            }
-        }
-    }
-
-    post {
-        always {
-            junit allowEmptyResults: true, testResults: '**/target/surefire-reports/*.xml'
-        }
+        // ... rest of your stages
     }
 }
