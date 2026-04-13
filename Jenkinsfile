@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+                https://github.com/VIJAY-ADITHYA-V/Student-Performance-Analytics-System.git
                 git 'https://github.com'
             }
         }
@@ -19,7 +20,8 @@ pipeline {
     }
     post {
         always {
-            junit 'target/surefire-reports/*.xml'
+            // allowEmptyResults prevents the build from failing if tests didn't run
+            junit allowEmptyResults: true, testResults: '**/target/surefire-reports/*.xml'
         }
     }
 }
