@@ -1,0 +1,27 @@
+# Maven
+target/
+*.jar
+*.war
+*.zip
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Build
+bin/
+build/
+
+# Dependencies
+dependency-reduced-pom.xml
